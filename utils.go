@@ -3,6 +3,7 @@ package aoc
 import (
 	"bufio"
 	"os"
+	"strconv"
 )
 
 // readLines reads a whole file into memory
@@ -25,4 +26,13 @@ func ReadLines(path string) []string {
 	}
 
 	return lines
+}
+
+func ParseInt(int string) int {
+	value, err := strconv.Atoi(int)
+	if err != nil {
+		panic(err)
+	}
+
+	return value
 }
