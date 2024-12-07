@@ -17,3 +17,7 @@ func main() {
 
 	fmt.Println("part 2", countPt2)
 }
+
+func traverseTree(line string) {
+
+}
