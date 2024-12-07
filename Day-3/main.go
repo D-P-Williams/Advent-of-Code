@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"regexp"
 	"strconv"
+
+	aoc "github.com/D-P-Williams/Advent-of-Code-24"
 )
 
 func errorCheck(err error) {
@@ -13,7 +15,7 @@ func errorCheck(err error) {
 }
 
 func main() {
-	lines := readLines("./input.txt")
+	lines := aoc.ReadLines("./input.txt")
 
 	regexPt1 := regexp.MustCompile(`mul\((\d*?),(\d*?)\)`)
 

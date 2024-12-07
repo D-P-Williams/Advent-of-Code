@@ -6,6 +6,8 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+
+	aoc "github.com/D-P-Williams/Advent-of-Code-24"
 )
 
 func errorCheck(err error) {
@@ -15,7 +17,7 @@ func errorCheck(err error) {
 }
 
 func main() {
-	lines := readLines("./input.txt")
+	lines := aoc.ReadLines("./input.txt")
 
 	listA := make([]int, 0, len(lines))
 	listB := make([]int, 0, len(lines))

@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+
+	aoc "github.com/D-P-Williams/Advent-of-Code-24"
 )
 
 func main() {
-	lines := readLines("./input.txt")
+	lines := aoc.ReadLines("./input.txt")
 
 	countPt1 := 0
 	countPt2 := 0

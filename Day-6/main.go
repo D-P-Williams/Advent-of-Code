@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"slices"
 	"strings"
+
+	aoc "github.com/D-P-Williams/Advent-of-Code-24"
 )
 
 const GUARD = "^"
 const LoopThreshold = 10000 // Brute force threshold to assume infinite loop
 
 func main() {
-	lines := readLines("./input.txt")
+	lines := aoc.ReadLines("./input.txt")
 
 	var grid = make([][]string, 0, len(lines))
 
