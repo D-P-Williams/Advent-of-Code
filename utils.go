@@ -28,6 +28,25 @@ func ReadLines(path string) []string {
 	return lines
 }
 
+// readLines reads a whole file into memory
+// and returns a slice of its lines.
+func ReadGrid(path string) [][]string {
+	lines := ReadLines(path)
+
+	var grid = make([][]string, 0, len(lines))
+
+	for _, line := range lines {
+		cells := make([]string, 0, len(line))
+
+		for _, cell := range line {
+			cells = append(cells, string(cell))
+		}
+
+		grid = append(grid, cells)
+	}
+	return grid
+}
+
 func ParseInt(int string) int {
 	value, err := strconv.Atoi(int)
 	if err != nil {
