@@ -1,3 +1,5 @@
+github.com/D-P-Williams/Advent-of-Code-24 v0.0.0-20250104150633-4e4151996072 h1:WF8EgCTX0OP2Pu1qDWrnkkMbJG4qyKKQfqmjwQfB5y8=
+github.com/D-P-Williams/Advent-of-Code-24 v0.0.0-20250104150633-4e4151996072/go.mod h1:+lwNtCMDETU9Mo4Xxd5HcRQS7yQ7/vrgI+naPWD8piY=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
