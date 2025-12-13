@@ -48,7 +48,7 @@ func main() {
 
 	wires := parseInput(lines)
 
-	// wires["z10"], wires["z16"] = wires["z16"], wires["z10"]
+	wires["z10"], wires["z16"] = wires["z16"], wires["z10"]
 
 	wires = evaluate(wires)
 
@@ -60,6 +60,16 @@ func main() {
 	countPt1 = generateOutput(wires, "z")
 
 	fmt.Println("part 1", countPt1)
+
+	x := generateOutput(wires, "x")
+	y := generateOutput(wires, "y")
+
+	fmt.Println("x", x, "y", y, "z", countPt1, "x + y", x+y, x+y == countPt1)
+	fmt.Printf("%046b\n%046b\n%046b\n", countPt1, x+y, x+y^countPt1)
+
+	invalidGates := searchForInvalidGates(wires)
+
+	fmt.Println("Invalid gates", invalidGates)
 
 	fmt.Println("part 2", countPt2)
 }
@@ -150,4 +160,81 @@ func generateOutput(wires map[string]*Wire, prefix string) int {
 	}
 
 	return output
+}
+
+func searchForInvalidGates(wires map[string]*Wire) []string {
+	invalidWires := []string{}
+
+	for key, wire := range wires {
+		valid := checkWire(wire, wires[key], wires)
+
+		if !valid {
+			invalidWires = append(invalidWires, key)
+		}
+	}
+
+	return invalidWires
+}
+
+/*
+AND:
+
+	AND gate can only be input to and OR gate
+
+	AND gate cannot take other AND gate as input
+
+XOR:
+
+	XOR gate can only be input to and AND/XOR gate
+
+	XOR gate cannot take AND gate as input
+
+OR:
+
+	OR gate can only be input of AND/XOR gate
+
+	OR gate can only take AND gate as input
+
+(Xn ⊕ Yn) ⊕ (a + b) should always output a Zxx except for the last carry z45
+
+A gate with Zxx as its output cannot directly use Xn or Yn as inputs.
+*/
+func checkWire(wire, child *Wire, wires map[string]*Wire) bool {
+	if wire.operator == "AND" {
+		// // AND gate can only be input to an OR gate
+		// if child.operator != "OR" {
+		// 	return false
+		// }
+
+		// AND gate cannot take other AND gate as input
+		if wires[wire.input1].operator == "AND" || wires[wire.input2].operator == "AND" {
+			return false
+		}
+	}
+
+	if wire.operator == "XOR" {
+		// // XOR gate can only be input to and AND/XOR gate
+		// if child.operator == "OR" {
+		// 	return false
+		// }
+
+		// XOR gate cannot take AND gate as input
+		if wires[wire.input1].operator == "AND" || wires[wire.input2].operator == "AND" {
+			return false
+		}
+	}
+
+	if wire.operator == "OR" {
+		// // OR gate can only be input of AND/XOR gate
+		// if child.operator == "OR" {
+		// 	return false
+		// }
+
+		// OR gate can only take AND gate as input
+		if wires[wire.input1].operator != "AND" || wires[wire.input2].operator != "AND" {
+			return false
+		}
+	}
+
+	return true
 }
