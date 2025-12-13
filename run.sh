@@ -11,15 +11,16 @@ function template() {
 package main
 
 import (
-    "fmt"
-    
+	"fmt"
+
 	aoc "github.com/D-P-Williams/Advent-of-Code/harness"
 )
 
 func main() {
-    lines := aoc.ReadLines("./input.txt")
+	// lines := aoc.ReadLines("./input.txt")
+	lines := aoc.ReadLines("./example.txt")
 
-    countPt1 := 0
+	countPt1 := 0
 	countPt2 := 0
 
 	fmt.Println("part 1", countPt1)
@@ -52,11 +53,11 @@ fi
 
 # After checking if the file is already cached
 url="https://adventofcode.com/$YEAR/day/$DAY_RAW/input"
-echo $url
-curl -H "Cookie: session=$AOC_SESSION" $url
 curl -H "Cookie: session=$AOC_SESSION" $url > $DIR/input.txt
 
 cd "$DIR"
+
+touch example.txt
 
 go mod init main
 go mod tidy
