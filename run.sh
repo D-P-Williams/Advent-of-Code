@@ -13,7 +13,7 @@ package main
 import (
     "fmt"
     
-	aoc "github.com/D-P-Williams/Advent-of-Code"
+	aoc "github.com/D-P-Williams/Advent-of-Code/harness"
 )
 
 func main() {
@@ -57,3 +57,6 @@ curl -H "Cookie: session=$AOC_SESSION" $url
 curl -H "Cookie: session=$AOC_SESSION" $url > $DIR/input.txt
 
 cd "$DIR"
+
+go mod init main
+go mod tidy

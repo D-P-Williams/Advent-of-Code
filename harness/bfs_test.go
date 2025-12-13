@@ -3,7 +3,7 @@ package aoc_test
 import (
 	"testing"
 
-	aoc "github.com/D-P-Williams/Advent-of-Code-24"
+	aoc "github.com/D-P-Williams/Advent-of-Code/harness"
 	"github.com/stretchr/testify/assert"
 )
 

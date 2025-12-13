@@ -1,9 +1,8 @@
-module github.com/D-P-Williams/Advent-of-Code
+module github.com/D-P-Williams/Advent-of-Code/harness
 
-go 1.23.3
+go 1.25.5
 
 require (
-	github.com/D-P-Williams/Advent-of-Code-24 v0.0.0-20250104150633-4e4151996072
 	github.com/stretchr/testify v1.10.0
 )
 
