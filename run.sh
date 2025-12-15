@@ -41,6 +41,12 @@ if [ -z "$YEAR" ] || [ -z "$DAY_RAW" ]; then
 # pad DAY to 2 digits
 DAY=$(printf "%02d" $DAY_RAW)
 DIR="./$YEAR/$DAY"
+
+if [ -d "$DIR" ]; then
+  echo "$DIR already exists, not overwriting."
+  exit 0
+fi
+
 # create missing files as needed
 if [ ! -d "$DIR" ]; then
 	mkdir -p "$DIR"
