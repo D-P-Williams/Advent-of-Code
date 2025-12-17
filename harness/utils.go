@@ -2,6 +2,7 @@ package aoc
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -74,4 +75,10 @@ func ParseInt(int string) int {
 	}
 
 	return value
+}
+
+func PrintSlices[T any](slices []T) {
+	for _, slice := range slices {
+		fmt.Println(slice)
+	}
 }
